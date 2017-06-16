@@ -1,0 +1,46 @@
+<h2>Lista Uytkowników</h2>
+<table>
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <th>Imię i nazwisko</th>
+            <th>Ocena</th>
+            <th>Dystans (km)</th>
+            <th>Czas</th>
+            <th>Ilość przejazdów</th>
+            <th>Opcje</th>
+        </tr>
+        <tr *ngFor="let e of pagedItems">
+            <td>{{e.id}}</td>
+            <td>{{e.name}}</td>
+            <td>{{e.score}}</td>
+            <td>{{e.distance}}</td>
+            <td>{{e.time}}</td>
+            <td>{{e.amountTrips}}</td>
+            <td><button class="btn" (click)="userDetail(e)" routerLinkActive="active">Szczegóły</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<ol>
+    <li *ngFor="let dupa of dupa2">{{dupa.id}}{{dupa.email}}</li>
+</ol>
+
+<ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage(1)">First</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+    </li>
+    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+        <button (click)="setPage(page)">{{page}}</button>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage(pager.currentPage + 1)">Next</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage(pager.totalPages)">Last</a>
+    </li>
+</ul>
+

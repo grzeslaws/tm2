@@ -1,0 +1,28 @@
+<h2>Lista tripów</h2>
+<table>
+    <tbody>
+        <tr>
+            <th>ID</th>
+            <th>Data</th>
+            <th>Status</th>
+            <th>Ocena</th>
+            <th>Dystans (km)</th>
+            <th>Czas</th>
+            <th>Adres początkowy</th>
+            <th>Adres końcowy</th>
+        </tr>
+        <tr *ngFor="let e of example.mandatory">
+            <td>{{e.id}}</td>
+            <td>{{e.date}}</td>
+            <td>{{e.status}}</td>
+            <td>{{e.score}}</td>
+            <td>{{e.distance}}</td>
+            <td>{{e.time}}</td>
+            <td>{{e.startAdress}}</td>
+            <td>{{e.endAdress}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+ 

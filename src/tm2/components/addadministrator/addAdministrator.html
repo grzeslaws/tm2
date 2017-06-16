@@ -1,0 +1,56 @@
+<div *ngIf="submitted === false">
+    
+    <h2>Dodajn nowego administratora</h2>
+
+    <form [formGroup]="addAdminForm" (ngSubmit)="onSubmit()" novalidate>
+        <input class="form-control" type="text" formControlName="name" placeholder="Imię">
+
+        <div *ngIf="addAdminForm.controls['name'].hasError('required')" class="alert alert-danger">Pole wymagane</div>
+        <div *ngIf="addAdminForm.controls['name'].hasError('minlength')" class="alert alert-danger">Musi mieć przynajmniej 4 znaki</div>
+        <div *ngIf="addAdminForm.controls['name'].hasError('maxlength')" class="alert alert-danger">Mzoe mieć maxymalnie 24 znaki</div>
+        
+        <input class="form-control" type="text" formControlName="lastName" placeholder="Nazwisko">
+        
+        <input class="form-control" type="email" formControlName="email" placeholder="E-mail">
+        <input class="form-control" type="password" value="" formControlName="pass" placeholder="Hasło">
+        <div class="form-group" formGroupName="options">
+            <select formControlName="customers" [value]="Customers">
+                <option *ngFor="let customer of customers">{{customer}}</option>
+            </select>
+            <div *ngIf="addAdminForm.controls['options'].controls['customers'].hasError('required')" class="alert alert-danger">Pole wymagane</div>
+            <input type="checkbox" id="confirm" formControlName="confirmation">
+            <label for="confirm">Wyślij email potwierdzający do nowego administartora</label>
+        </div>
+
+        <div>
+            <h3>Podsumowanie</h3>
+                <ul>
+                    <li>Imię: {{ addAdminForm.get('name').value }}</li>
+                    <li>Nazwisko: {{ addAdminForm.get('lastName').value }}</li>
+                    <li>E-mail: {{ addAdminForm.get('email').value }}</li>
+                    <li>Klient: {{ addAdminForm.get('options.customers').value }}</li>
+                    <li>Wysłać e-mail potwierdzający?: {{ addAdminForm.get('options.confirmation').value ? 'Tak' : 'Nie' }}</li>
+                </ul>
+        </div>
+
+        <button [disabled]="addAdminForm.invalid" type="submit">Dodaj</button>
+
+    </form>
+
+    <p>Form value: {{ addAdminForm.value | json }}</p>
+    <p>Form status: {{ addAdminForm.status | json }}</p>
+    <p>Name value: {{ addAdminForm.get('name').status }}</p>
+    <!--<p>Confirmation value: {{ addAdminForm.get('confirmation').status }}</p>-->
+    
+</div>
+
+<div *ngIf="submitted === true">
+    <h3>Dodałeś następującego administratora</h3>
+        <ul>
+            <li>Imię: {{ addAdminForm.get('name').value }}</li>
+            <li>Nazwisko: {{ addAdminForm.get('lastName').value }}</li>
+            <li>E-mail: {{ addAdminForm.get('email').value }}</li>
+            <li>Klient: {{ addAdminForm.get('options.customers').value }}</li>
+            <li>Wysłać e-mail potwierdzający?: {{ addAdminForm.get('options.confirmation').value ? 'Tak' : 'Nie' }}</li>
+        </ul>
+</div>

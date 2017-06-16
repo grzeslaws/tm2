@@ -1,0 +1,43 @@
+@mixin hover-focus($background-color) {
+  &:hover,
+  &:focus {
+    background-color: darken($background-color, 5%);
+  }
+}
+
+@mixin btn($btn-default-color, $btn-default-bg, $btn-default-border) {
+  background-color: $btn-default-bg;
+  color: $btn-default-color;
+  border: 1px solid $btn-default-border;
+  border-radius: $global-border-radius;
+  font-size: $font-size-base;
+  font-family: $font-family-sans-serif;
+  padding: $btn-padding-vertical $btn-padding-horizontal;
+  display: inline-block;
+
+  @include hover-focus($btn-default-bg);
+
+  &.reverse,
+  &.active {
+    background-color: $btn-default-color;
+    color: $btn-default-bg;
+
+    @include hover-focus($btn-default-color);
+  }
+
+  &.secondary {
+    background-color: $white;
+    color: $brand-info;
+    border-color: $brand-info;
+
+    @include hover-focus($white);
+
+    &.reverse,
+    &.active {
+      background-color: $brand-info;
+      color: $white;
+
+      @include hover-focus($brand-info);
+    }
+  }
+}

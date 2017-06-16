@@ -1,0 +1,16 @@
+<div>
+    <label for="email">Email: </label>
+    <input id="email" [(ngModel)]="email">
+</div>
+<div>
+    <label for="applicationName">Application name:</label>
+    <input id="applicationName" [(ngModel)]="applicationName">
+</div>
+<div>
+    <label for="password">Password:</label>
+    <input id="password" [(ngModel)]="password">
+</div>
+<div>
+    <button id="login" (click)="login()">Login</button>
+    <button id="logout" (click)="logout()">Logout</button>
+</div>

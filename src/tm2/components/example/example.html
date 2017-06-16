@@ -1,0 +1,45 @@
+<ng-container *ngIf="example">
+  {{i18n.id}}: {{example.id}}
+  <br/>
+  {{i18n.mandatory}}
+  <table>
+    <tr>
+      <th>{{i18n.id}}</th>
+      <th>{{i18n.name}}</th>
+      <th>{{i18n.date}}</th>
+    </tr>
+    <tr *ngFor="let mandatory of example.mandatory">
+      <td>{{mandatory.id}}dd</td>
+      <td>{{mandatory.name}}</td>
+      <td>{{mandatory.date}}</td>
+    </tr>
+  </table>
+  <br/>
+  {{i18n.optional}}
+  <table>
+    <tr>
+      <th>{{i18n.id}}</th>
+      <th>{{i18n.name}}</th>
+      <th>{{i18n.date}}</th>
+    </tr>
+    <tr *ngFor="let optional of example.optional">
+      <td>{{optional.id}}</td>
+      <td>{{optional.name}}</td>
+      <td>{{optional.date}}</td>
+    </tr>
+  </table>
+</ng-container>
+<ng-container>
+  <ol>
+    <li *ngFor="let mandatory1 of exampleOnInit.valid1.mandatoryEmbedded">{{i18n.id}}: {{mandatory1.id}}</li>
+  </ol>
+
+</ng-container>
+<br/>
+<button (click)="fetchExample('valid1')">{{i18n.valid1}}</button>
+<button (click)="fetchExample('valid2')">{{i18n.valid2}}</button>
+<button (click)="fetchExample('missingTopLevelId')">{{i18n.missingTopLevelId}}</button>
+<button (click)="fetchExample('missingTopLevelMandatorEmbedded')">{{i18n.missingTopLevelMandatorEmbedded}}</button>
+<button (click)="fetchExample('missingIdOnFirstEmbedded')">{{i18n.missingIdOnFirstEmbedded}}</button>
+<button (click)="fetchExample('incorrectIdTypeForSecondEmbedded')">{{i18n.incorrectIdTypeForSecondEmbedded}}</button>
+<button (click)="fetchExample('unparsableDateOnFirstEmbedded')">{{i18n.unparsableDateOnFirstEmbedded}}</button>

@@ -1,0 +1,23 @@
+<h2>Ocena uzytkownika</h2>
+
+<p>{{example.score}}</p>
+<p>{{example.scoreDetail.event3}}</p>
+<div class="wrapperPie">
+    <div class="wheel"></div>
+      <div class="wrapperSvg">
+        <svg width="200" height="200" class="chart-pie">
+        <circle [ngStyle]="{ 'stroke-dasharray': scorePercent }" r="50" cx="100" cy="100" class="pie" #circleEl></circle>
+      </svg>
+    </div>
+</div>
+
+
+<svg class="chart-bar" width="550" height="450" aria-labelledby="title desc">
+  <title id="title">A bar chart showing information</title>
+  <desc id="desc">4 apples; 8 bananas; 15 kiwis; 16 oranges; 23 lemons</desc>
+
+  <g class="bar" *ngFor="let rec of arrayRec; let i=index">
+    <rect [ngClass]="['color' + i]" [attr.width]="rec" height="19" [attr.y]="80 + (i * 25)" rx="3" ry="3"></rect>
+    <text [attr.x]="rec + 10" [attr.y]="90 + (i * 25)" dy=".35em">{{ toFixedMethod(rec / width100percent * 10) }}</text>
+  </g>
+</svg>
