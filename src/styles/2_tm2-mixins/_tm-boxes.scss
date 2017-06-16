@@ -1,0 +1,6 @@
+@mixin box ($border-color: $gray) {
+    overflow: hidden;
+    border-radius: $global-border-radius;
+    border: 1px solid rgba($border-color, .08);
+    @include shadow;
+}

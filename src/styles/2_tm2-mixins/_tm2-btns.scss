@@ -2,10 +2,11 @@
   &:hover,
   &:focus {
     background-color: darken($background-color, 5%);
+    outline: 0 !important;
   }
 }
 
-@mixin btn($btn-default-color, $btn-default-bg, $btn-default-border) {
+@mixin o-btn($btn-default-color, $btn-default-bg, $btn-default-border) {
   background-color: $btn-default-bg;
   color: $btn-default-color;
   border: 1px solid $btn-default-border;
@@ -14,30 +15,58 @@
   font-family: $font-family-sans-serif;
   padding: $btn-padding-vertical $btn-padding-horizontal;
   display: inline-block;
+  transition: all .3s ease;
 
   @include hover-focus($btn-default-bg);
 
-  &.reverse,
-  &.active {
+  &--reverse,
+  &--active {
     background-color: $btn-default-color;
     color: $btn-default-bg;
 
     @include hover-focus($btn-default-color);
   }
 
-  &.secondary {
+  &--primary {
+    background-color: $btn-primary-bg;
+    color: $btn-primary-color;
+    border-color: $btn-primary-color;
+
+    @include hover-focus($white);
+
+    &--reverse,
+    &--active {
+      background-color: $btn-primary-color;
+      color: $white;
+      border: 1px solid $btn-primary-bg;
+
+      @include hover-focus($btn-primary-color);
+    }
+  }
+
+  &--secondary {
     background-color: $white;
     color: $brand-info;
     border-color: $brand-info;
 
     @include hover-focus($white);
 
-    &.reverse,
-    &.active {
+    &--reverse,
+    &--active {
       background-color: $brand-info;
       color: $white;
 
       @include hover-focus($brand-info);
+    }
+  }
+
+  &--small {
+    font-size: $font-size-base * .7;
+    padding: $btn-padding-vertical * .8 $btn-padding-horizontal;
+
+    .c-pagination & {
+      padding: 0;
+      @include size(24px);
     }
   }
 }

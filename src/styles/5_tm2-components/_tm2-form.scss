@@ -1,0 +1,25 @@
+.c-form {
+
+    &__input-text {
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 1px solid $gray-light;
+        background-color: transparent;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        color: $gray;
+        font-weight: $font-weight-base;
+    }
+
+    &__label {
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-size: $font-size-h6;
+        display: block;
+    }
+
+    input::placeholder{
+        font-size: $font-size-h6;
+    }
+}

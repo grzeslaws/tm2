@@ -1,0 +1,32 @@
+.c-table {
+        background-color: $gray-light;
+        width: 100%;
+        text-align: left;
+        border-collapse: separate;
+        @include box($gray);
+
+        &-thead {
+            background-color: $white;
+        }
+
+        &-tr {
+
+            &:nth-of-type(even){
+                background-color: $white;
+            }
+        }
+
+        &-th,
+        &-td {
+            padding: $global-spacing;
+            border-right: 1px solid rgba($gray, .08);
+
+            &:last-child {
+                border-right: 0 none;
+            }
+        }
+
+        &-th {
+            font-weight: $font-weight-normal;
+        }
+    }

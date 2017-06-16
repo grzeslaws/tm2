@@ -6,6 +6,10 @@ $font-family-sans-serif: 'Lato', sans-serif !default;
 $font-family-serif: Georgia, "Times New Roman", Times, serif !default;
 $font-family-base: $font-family-sans-serif !default;
 
+$font-weight-base: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 900;
+
 $font-size-base: 15px !default;
 
 $font-size-h1: ceil(($font-size-base * 3)) !default; // ~45px
@@ -13,6 +17,6 @@ $font-size-h2: ceil(($font-size-base * 2)) !default; // ~30px
 $font-size-h3: ceil(($font-size-base * 1.53)) !default; // ~23px
 $font-size-h4: ceil(($font-size-base * 1.2)) !default; // ~18px
 $font-size-h5: $font-size-base !default;
-$font-size-h6: ceil(($font-size-base * 0.86)) !default; // ~13px
+$font-size-h6: ceil(($font-size-base * .86)) !default; // ~13px
 
 $line-height-base: 1.5 !default;

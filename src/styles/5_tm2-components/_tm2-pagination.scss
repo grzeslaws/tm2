@@ -1,0 +1,15 @@
+.c-pagination {
+    display: flex;    
+    justify-content: flex-end;
+    margin-top: $global-spacing * 1.2;
+    font-size: $font-size-h6;
+
+    &__list {
+        display: flex;
+        align-items: center;
+    }
+
+    &__item {
+        margin-left: $global-spacing / 2;
+    }
+}

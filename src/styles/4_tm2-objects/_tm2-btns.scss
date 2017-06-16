@@ -1,0 +1,7 @@
+.o-btn {
+  @include o-btn($btn-default-color, $btn-default-bg, $btn-default-border);
+
+  .c-main-menu & {
+    margin-right: 24px;
+  }
+}
